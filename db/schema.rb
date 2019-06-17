@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_142756) do
+ActiveRecord::Schema.define(version: 2019_06_17_152013) do
 
   create_table "admins", force: :cascade do |t|
     t.text "user_name"
@@ -23,8 +23,7 @@ ActiveRecord::Schema.define(version: 2019_06_17_142756) do
   create_table "articles", force: :cascade do |t|
     t.text "title"
     t.text "content"
-    t.text "summary"
-    t.text "image_url"
+    t.text "imgurl"
   end
 
   create_table "users", force: :cascade do |t|
