@@ -1,0 +1,22 @@
+<section class="section">
+<nav class="level">
+  <p class="level-item has-text-centered">
+    <a class="link is-info">back</a>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info">articles</a>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info">users</a>
+  </p>
+</nav>
+</section>
+<div class="box">
+<section class="section">
+  <div class="wrapper">
+  <%= render 'form' %>
+    <%= link_to 'Show', @article %> |
+    <%= link_to 'Back', articles_path %>
+  </div>
+</section>
+</div>

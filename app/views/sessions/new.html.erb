@@ -1,0 +1,20 @@
+
+<div id="login">
+  <div class="login-card">
+    <div class="card-title">
+      <h1>Please Sign In</h1>
+    </div>
+
+    <div class="content">
+      <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+        <input id="username" type="username" name="username" title="username" placeholder="Username" required autofocus>
+        <input id="password" type="password" name="password" title="password" placeholder="Password" required>
+
+        <button type="submit" class="btn btn-primary" value='login'>Login</button>
+      <%end%>
+      <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    </div>
+  </div>
+</div>
+
+
