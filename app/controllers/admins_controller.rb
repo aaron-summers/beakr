@@ -1,6 +1,7 @@
 class AdminsController < ApplicationController
   before_action :find_admin, only: [:show, :edit, :update, :destroy]
 
+  
   def index
     @admins = Admin.all
   end
