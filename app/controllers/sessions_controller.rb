@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if !user || !user.authenticate(params[:session][:password])
       flash[:errors] = ["Credentials aren't valid"]
-      redirect_to pages_path
+      redirect_to login_path
     else
       session[:user_id] = user.id
       redirect_to pages_path
