@@ -1,5 +1,5 @@
 class ChangeRequest < ApplicationRecord
-  belongs_to :article
+  belongs_to :page
   belongs_to :user
 
   validates :title, presence: true

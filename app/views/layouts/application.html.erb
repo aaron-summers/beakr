@@ -24,6 +24,10 @@
           <p class="level-item has-text-centered">
             <a class="link is-info"><%= link_to 'Log out', logout_path %></a>
           </p>
+        <% else %>
+          <p class="level-item has-text-centered">
+            <a class="link is-info"><%= link_to 'Log in', login_path %></a>
+          </p>
         <% end %>
       </nav>
     </section>
@@ -34,6 +38,12 @@
       <div class="box">
         <section class="section">
           <div class="wrapper">
+            <% if notice %>
+              <p class="alert alert-success"><%= notice %></p>
+            <% end %>
+            <% if alert %>
+              <p class="alert alert-danger"><%= alert %></p>
+            <% end %>
             <%= yield %>
           </div>
         </section>

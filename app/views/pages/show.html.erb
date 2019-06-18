@@ -16,4 +16,9 @@
   <% end %>
   <%
 =end%>
+  <%= form_tag likes_path do%>
+    <%= hidden_field_tag(:"like[user_id]", current_user.id) %>
+    <%= hidden_field_tag(:"like[page_id]", @page.id) %>
+    <%= submit_tag("Like") %>
+  <%end%>
 </div>
