@@ -1,5 +1,4 @@
 class ChangeRequest < ApplicationRecord
-  belongs_to :admin
   belongs_to :article
   belongs_to :user
 
