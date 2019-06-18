@@ -1,14 +1,19 @@
 <div class="container is-fluid">
   <div class="notification">
-    <h1><strong><%= @page.title %></strong></h1><br>
+    <h1><strong><%= @page.title %></strong></h1>
+    <br>
+    <%
+=begin%>
     <small><%= @page.user.name %></small>
+    <%
+=end%>
     <p><%= @page.content %></p>
   </div>
   <%
 =begin%>
- <% if @page.user_id == @current_user.id %>
+  <% if @page.user_id == @current_user.id %>
     <%= link_to 'Edit this page', edit_page_path(@page) %>
   <% end %>
-<%
+  <%
 =end%>
 </div>
