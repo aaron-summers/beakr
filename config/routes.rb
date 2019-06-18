@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
   resources :pages
   resources :tags
   resources :change_requests
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   root 'application#hello'
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
-  get '/login' => 'sessions#new'
+  get '/login' => 'sessions#new', as: :login
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
 
