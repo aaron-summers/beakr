@@ -4,40 +4,41 @@
     <title>Bibliomania</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" /> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-
   <body>
-  <section class="section">
-    <nav class="level">
-      <p class="level-item has-text-centered">
-        <a class="link is-info"><%= link_to 'Change Requests', change_requests_path %></a>
-      </p>
-      <p class="level-item has-text-centered">
-        <a class="link is-info"><%= link_to 'All Articles', articles_path %></a>
-      </p>
-      <p class="level-item has-text-centered">
-        <a class="link is-info"><%= link_to 'My Account', articles_path %></a>
-      </p>
-      <% if logged_in? %>
+    <section class="section">
+      <nav class="level">
         <p class="level-item has-text-centered">
-          <a class="link is-info"><%= link_to 'Log out', logout_path %></a>
+          <a class="link is-info"><%= link_to 'Change Requests', change_requests_path %></a>
         </p>
-      <% end %>
-    </nav>
-  </section>
-
-  <% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>"><%= message %></div>
-  <% end %>
-
-    <%= yield %>
+        <p class="level-item has-text-centered">
+          <a class="link is-info"><%= link_to 'All Articles', articles_path %></a>
+        </p>
+        <p class="level-item has-text-centered">
+          <a class="link is-info"><%= link_to 'My Account', articles_path %></a>
+        </p>
+        <% if logged_in? %>
+          <p class="level-item has-text-centered">
+            <a class="link is-info"><%= link_to 'Log out', logout_path %></a>
+          </p>
+        <% end %>
+      </nav>
+    </section>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+    <section>
+      <div class="box">
+        <section class="section">
+          <div class="wrapper">
+            <%= yield %>
+          </div>
+        </section>
+      </div>
+    </section>
   </body>
 </html>
-
-
