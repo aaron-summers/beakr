@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
   resources :pages
   resources :tags
   resources :change_requests
@@ -8,20 +9,20 @@ Rails.application.routes.draw do
   root 'application#hello'
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
-  get '/login' => 'sessions#new'
+  get '/login' => 'sessions#new', as: :login
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
 
-  root to: 'articles#index'
+  root to: 'pages#index'
   # devise_for :users
 
-  resources :users do
-    resources :articles do
-      resources :likes
-    end
-  end
-
-  resources :articles do
-    resource :likes
-  end
+#   resources :users do
+#     resources :articles do
+#       resources :likes
+#     end
+#   end
+#
+#   resources :articles do
+#     resource :likes
+#   end
 end
