@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  def new; end
+  def new
+  end
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
@@ -14,7 +15,9 @@ class SessionsController < ApplicationController
   end
 
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+    if session[:user_id]
+      @current_user ||= User.find_by(id: session[:user_id])
+    end
   end
 
   def destroy
