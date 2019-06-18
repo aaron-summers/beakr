@@ -1,31 +1,21 @@
-<section>
-  <div class="box">
-    <section class="section">
-      <div class="wrapper">
-        <%= form_for @page do |f| %>
-        <div class="field">
-          <%= f.label :title, class: "label" %>
-            <div class="control">
-              <%= f.text_field :title, class: "input", placeholder: "Article title here..." %>
-            </div>
-        </div>
-
-        <div class="field">
-          <%= f.label :content, class: "label" %>
-            <div class="control">
-              <%= f.text_area :content, class: "textarea", placeholder: "Article content here...", rows: "20" %>
-            </div>
-        </div>
-
-        <div class="field">
-          <%= f.label :imgurl, class: "label" %>
-            <div class="control">
-              <%= f.text_field :imgurl, class: "input", placeholder: "Article image link here..."%>
-            </div>
-        </div>
-
-        <%= f.submit%>
-      <% end %>
+<%= form_for @page do |f| %>
+  <div class="field">
+    <%= f.label :title, class: "label" %>
+    <div class="control">
+      <%= f.text_field :title, class: "input", placeholder: "Article title here..." %>
     </div>
-  </section>
-</div>
+  </div>
+  <div class="field">
+    <%= f.label :content, class: "label" %>
+    <div class="control">
+      <%= f.text_area :content, class: "textarea", placeholder: "Article content here...", rows: "20" %>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.label :imgurl, class: "label" %>
+    <div class="control">
+      <%= f.text_field :imgurl, class: "input", placeholder: "Article image link here..."%>
+    </div>
+  </div>
+  <%= f.submit%>
+<% end %>
