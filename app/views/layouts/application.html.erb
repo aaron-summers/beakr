@@ -13,13 +13,13 @@
     <section class="section">
       <nav class="level">
         <p class="level-item has-text-centered">
-          <a class="link is-info"><%= link_to 'Change Requests', change_requests_path %></a>
+          <a class="link is-info"><%= link_to 'New Article', new_page_path %></a>
         </p>
         <p class="level-item has-text-centered">
-          <a class="link is-info"><%= link_to 'All Articles', articles_path %></a>
+          <a class="link is-info"><%= link_to 'All Articles', pages_path %></a>
         </p>
         <p class="level-item has-text-centered">
-          <a class="link is-info"><%= link_to 'My Account', articles_path %></a>
+          <a class="link is-info"><%= link_to 'My Account', pages_path %></a>
         </p>
         <% if logged_in? %>
           <p class="level-item has-text-centered">
