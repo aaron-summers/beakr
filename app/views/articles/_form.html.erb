@@ -7,13 +7,6 @@
       </div>
 
       <div class="field">
-        <%= f.label 'Summary', class: 'label' %>
-        <div class="control">
-          <%= f.text_field :summary, class: 'textarea', placeholder: 'Article summary here...', rows: '5' %>
-        </div>
-      </div>
-
-      <div class="field">
         <%= f.label 'Content', class: 'label' %>
         <div class="control">
           <%= f.text_area :content, class: 'textarea', placeholder: 'Article content here...', rows: '20' %>
@@ -21,9 +14,9 @@
       </div>
 
       <div class="field">
-        <%= f.label 'Image_url', class: 'label' %>
+        <%= f.label 'Image Uploader', class: 'label' %>
         <div class="control">
-          <%= f.text_field :image_url, class: 'input', placeholder: 'Article image link here...'%>
+          <%= f.text_field :imgurl, class: 'input', placeholder: 'Article image link here...'%>
         </div>
       </div>
 

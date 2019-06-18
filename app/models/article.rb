@@ -5,6 +5,7 @@ class Article < ApplicationRecord
   has_many :change_request
   has_many :user
   has_many :tag
+  has_many :like
 
   validates :title, presence: true, uniqueness: true
   validates :content, presence: true

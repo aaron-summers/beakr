@@ -12,4 +12,17 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
+
+  root to: 'articles#index'
+  # devise_for :users
+
+  resources :users do
+    resources :articles do
+      resources :likes
+    end
+  end
+
+  resources :articles do
+    resource :likes
+  end
 end
