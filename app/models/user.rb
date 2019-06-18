@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :likes
+  has_many :users, through: :likes
 
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
