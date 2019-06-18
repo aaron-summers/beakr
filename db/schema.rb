@@ -12,19 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2019_06_18_101233) do
 
-  create_table "admins", force: :cascade do |t|
-    t.text "user_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "article_id"
-    t.index ["article_id"], name: "index_admins_on_article_id"
-  end
-
-  create_table "articles", force: :cascade do |t|
-    t.text "title"
-    t.text "content"
-    t.text "imgurl"
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "pages", force: :cascade do |t|
     t.string "title"
@@ -34,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_06_18_101233) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
