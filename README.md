@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+instead of change requests
+
+we will now add the ability to comment on a post.
+
+we will also limit the functionality to delete a page to only the creator.
