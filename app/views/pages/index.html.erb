@@ -1,1 +1,7 @@
 <h2>All Pages</h2>
+<% @pages.each do |page| %>
+  <ul>
+    <li><%= page.title %></li>
+    <li><%= page.content %></li>
+  </ul>
+<% end %>
