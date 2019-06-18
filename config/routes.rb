@@ -12,16 +12,5 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
 
-  root to: 'articles#index'
-  # devise_for :users
-
-  resources :users do
-    resources :articles do
-      resources :likes
-    end
-  end
-
-  resources :articles do
-    resource :likes
-  end
+  root to: 'pages#index'
 end
