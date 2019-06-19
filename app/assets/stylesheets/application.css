@@ -19,3 +19,12 @@
   position: relative;
   margin: 0 auto;
 }
+
+.logo-text {
+  font-size: 2rem;
+  padding: 4px;
+}
+
+ .navbar-dropdown.dropdown-right {
+  left: calc(-250% + 5px);
+}

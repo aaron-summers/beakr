@@ -18,6 +18,9 @@
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
         <img src="https://cdn.pixabay.com/photo/2014/04/03/09/57/lab-309424_960_720.png" width="25" height="150">
+         <div class="logo-head">
+          <p class="logo-text is-lowercase">Beakr</p>
+        </div>
       </a>
 
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -28,7 +31,7 @@
     </div>
 
     <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
+      <div class="navbar-end">
         <div class="navbar-item">
           <%= link_to "", new_page_path, :class=>"navbar-item fas fa-marker" %>
         </div>
@@ -44,7 +47,7 @@
 
 
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
+          <a class="navbar-link dropdown-right">
           </a>
 
           <div class="navbar-dropdown">
