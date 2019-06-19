@@ -2,23 +2,20 @@
   <div class="notification">
     <h1><strong><%= @page.title %></strong></h1>
     <br>
-    <%
-=begin%>
-    <small><%= @page.user.name %></small>
-    <%
-=end%>
-    <p><%= @page.content %></p>
+    <small>by <%= @page.user.name %></small>
+    <div class="container is-fluid">
+      <p><%= @page.content %></p>
+    </div>
   </div>
-  <%
-=begin%>
-  <% if @page.user_id == @current_user.id %>
+  <% if @page.user_id == current_user.id %>
     <%= link_to 'Edit this page', edit_page_path(@page) %>
-  <% end %>
-  <%
-=end%>
-  <%= form_tag likes_path do%>
-    <%= hidden_field_tag(:"like[user_id]", current_user.id) %>
-    <%= hidden_field_tag(:"like[page_id]", @page.id) %>
-    <%= submit_tag("Like") %>
+  <% else %>
+    <%= form_tag likes_path do%>
+      <%= hidden_field_tag(:"like[user_id]", current_user.id) %>
+      <%= hidden_field_tag(:"like[page_id]", @page.id) %>
+      <% if !(@page.likes.any? { |like| like.user_id == current_user.id }) %>
+        <%= submit_tag("Like") %>
+      <%end%>
+    <%end%>
   <%end%>
 </div>

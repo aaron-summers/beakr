@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :find_like, only: [:destroy]
 
   def new
     @like = Like.new(like_params)
@@ -6,8 +7,13 @@ class LikesController < ApplicationController
 
   def create
     like = Like.create like_params
-      redirect_to user_path(@user)
+    redirect_to page_path(like.page)
    end
+
+   def destroy
+    @like.destroy
+    redirect_to user_path(@user)
+  end
 
   private
 

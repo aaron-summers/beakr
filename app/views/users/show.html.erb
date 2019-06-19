@@ -19,11 +19,12 @@
       <div class="media-content">
         <div class="content">
           <p>
-            <strong><%= like.page.title %></strong> <small><%= like.page.user%></small>
+            <strong><%= like.page.title %></strong> <small>by <%= like.page.user.name%></small>
             <br>
             <span style="display:block;text-overflow: ellipsis;height: 50px;overflow: hidden;">
               <%= like.page.content %>
             </span>
+            <%= button_to "delete", like, :method => :delete %>
           </p>
         </div>
       </div>
