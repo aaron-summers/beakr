@@ -16,13 +16,9 @@
   <% if logged_in? %>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
+      <a class="navbar-item" href="<%= pages_url %>">
         <img src="https://cdn.pixabay.com/photo/2014/04/03/09/57/lab-309424_960_720.png" width="25" height="150">
-<<<<<<< HEAD
-        <div class="logo-head">
-=======
          <div class="logo-head">
->>>>>>> 7c062ccef2271deb396a6446fdb85d23a8352297
           <p class="logo-text is-lowercase">Beakr</p>
         </div>
       </a>
@@ -45,7 +41,7 @@
         </div>
 
         <div class="navbar-item">
-          <%= link_to "", users_path, :class=>"navbar-item fas fa-user-astronaut" %>
+          <%= link_to "", user_path(current_user), :class=>"navbar-item fas fa-user-astronaut" %>
         </div>
 
 

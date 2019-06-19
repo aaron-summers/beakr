@@ -1,5 +1,6 @@
-
+<div class="box hero is-light">
 <% @pages.each do |page| %>
+<div class="box">
   <article class="media">
     <figure class="media-left">
       <p class="image is-64x64">
@@ -16,6 +17,7 @@
           </span>
           <%= link_to "... read more", page %>
         </p>
+        </div>
       </div>
       <nav class="level is-mobile">
         <div class="level-left">
@@ -27,3 +29,4 @@
     </div>
   </article>
 <% end %>
+</div>

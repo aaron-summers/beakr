@@ -2,18 +2,41 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1 class="title is-1">
+      <h1 class="title is-2">
         <%= @user.name %>
       </h1>
+      <br>
     </section>
   </aside>
 </div>
-<div class="box">
-  <% @user.likes.each do |like| %>
+
+<div class="box hero is-light">
+  <% @user.pages.each do |post| %>
+  <div class="box ">
+  <strong><%= post.title %></strong>
+  <article class="media">
+    <div class="media-right">
+      <figure class="image">
+        <img src="<%= post.imgurl %>" alt="<%= post.imgurl %>">
+        <br>
+      </figure>
+      </div>
+      </article>
+      <div class="media-content">
+        <p><%= post.content %></p><br>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+  <h3>Liked Posts</h3>
+
+  <div class="box">
+    <% @user.likes.each do |like| %>
     <article class="media">
       <div class="media-right">
         <figure class="image is-64x64">
-          <img src="<%= like.page.imgurl %>" alt="<%= like.page.title %>">
+          <img src="<%= like.page.imgurl %>" alt="<%= like.page.imgurl %>">
         </figure>
       </div>
       <div class="media-content">
@@ -29,5 +52,5 @@
         </div>
       </div>
     </article>
-  <%end%>
-</div>
+    <%end%>
+  </div>
