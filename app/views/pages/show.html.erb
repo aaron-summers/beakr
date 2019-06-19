@@ -2,7 +2,10 @@
   <div class="notification">
     <h1><strong><%= @page.title %></strong></h1>
     <br>
-    <small>by <%= @page.user.name %></small>
+    <small>by <%= link_to @page.user.name, users_path(@page.user) %>
+      <p>
+        <span class="tag is-dark"><%= @page.tag.name %></span></p>
+    </small><br>
     <div class="container is-fluid">
       <p><%= @page.content %></p>
     </div>
