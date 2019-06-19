@@ -10,9 +10,6 @@
       <div class="navbar-item button is-light">
         <a class="link is-link"><%= link_to 'Edit', edit_page_path(@page), :class => "button is-normal is-light" %></a>
       </div>
-    </div>
-  </div>
-
     </nav>
   <% else %>
     <%= form_tag likes_path do%>
@@ -26,7 +23,8 @@
   <div class="container is-fluid">
     <div class="notification">
       <h1><strong><%= @page.title %></strong></h1>
-      <small class="media-right">by <%= @page.user.name %></small>
+      <small class="media-right">by <%= link_to @page.user.name, users_path(@page.user) %></small>
+      <span class="tag is-dark"><%= @page.tag.name %></span>
       <br>
       <br>
       <div class="box show-image">
