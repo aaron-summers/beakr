@@ -1,8 +1,20 @@
+<div class="box">
 <div class="container is-fluid">
   <div class="notification">
     <h1><strong><%= @page.title %></strong></h1>
+    <small class="media-right">by <%= @page.user.name %></small>
     <br>
-    <small>by <%= @page.user.name %></small>
+    <br>
+    <div class="box show-image">
+    <div class="media-content">
+      <figure class="media-left">
+        <p class="image">
+          <img src="<%= @page.imgurl%>">
+        </p>
+      </figure>
+    </div>
+  </div>
+  
     <div class="container is-fluid">
       <p><%= @page.content %></p>
     </div>
@@ -18,4 +30,5 @@
       <%end%>
     <%end%>
   <%end%>
+</div>
 </div>
