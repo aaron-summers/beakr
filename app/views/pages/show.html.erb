@@ -1,15 +1,18 @@
 <div class="box">
+  <div class="container is-fluid">
   <% if @page.user_id == current_user.id %>
   <nav class="navbar-end" role="navigation" aria-label="main navigation">
   <div class="navbar-item has-dropdown is-hoverable">
     <a class="navbar-link dropdown-right is-arrowless">
-      <i class="far fa-edit fa-border"></i>
+      <i class="far fa-edit "></i>
     </a>
-
     <div class="navbar-dropdown edit-right">
-      <div class="navbar-item button is-light">
-        <a class="link is-link"><%= link_to 'Edit', edit_page_path(@page), :class => "button is-normal is-light" %></a>
-      </div>
+      <!-- <div class="navbar-item button is-light"> -->
+        <%= button_to "Edit", edit_page_path(@page), method: :get, :class => "navbar-item button is-light" %>
+
+      <!-- </div> -->
+    </div>
+  </div>
     </nav>
   <% else %>
     <%= form_tag likes_path do%>
@@ -20,11 +23,11 @@
     <%end%>
   <%end%>
   <%end%>
-  <div class="container is-fluid">
+
     <div class="notification">
       <h1><strong><%= @page.title %></strong></h1>
       <small class="media-right">by <%= link_to @page.user.name, users_path(@page.user) %></small>
-      <span class="tag is-dark"><%= @page.tag.name %></span>
+      <span class="tag is-dark">#<%= @page.tag.name %></span>
       <br>
       <br>
       <div class="box show-image">

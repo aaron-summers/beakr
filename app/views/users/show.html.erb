@@ -1,49 +1,32 @@
-
-
 <div class="container is-fluid">
-  <% @user.pages.each do |post| %>
+  <% @user.pages.reverse_each do |post| %>
   <div class="box ">
-  <strong><%= post.title %></strong>
-  <div class="box">
-  <article class="media">
-    <div class="media-content">
-      <figure class="image">
-        <img src="<%= post.imgurl %>" alt="<%= post.imgurl %>">
-        <br>
-      </figure>
-      </div>
-      </article>
+    <% if post.user_id == current_user.id %>
+    <nav class="navbar-end" role="navigation" aria-label="main navigation">
+      <div class="navbar-item has-dropdown is-hoverable edit-button">
+        <!-- <a class="navbar-link dropdown-right is-arrowless"> -->
+        <p class="hover_description">Edit</p>
+          <%= link_to "", (edit_page_path), :class=>"navbar-item fas fa-edit " %>
+          <!-- <i class="far fa-edit "></i> -->
 
-    </div>
+      </nav>
+      <% end %>
+
+      <strong><%= post.title %></strong>
+      <div class="box">
+        <article class="media">
+          <div class="media-content">
+            <figure class="image">
+              <img src="<%= post.imgurl %>" alt="<%= post.imgurl %>">
+              <br>
+            </figure>
+          </div>
+        </article>
+
+      </div>
       <div class="media-content">
         <p><%= post.content %></p><br>
-        </div>
       </div>
-      <% end %>
     </div>
-
-  <h3>Liked Posts</h3>
-
-  <div class="box">
-    <% @user.likes.each do |like| %>
-    <article class="media">
-      <div class="media-right">
-        <figure class="image is-64x64">
-          <img src="<%= like.page.imgurl %>" alt="<%= like.page.imgurl %>">
-        </figure>
-      </div>
-      <div class="media-content">
-        <div class="content">
-          <p>
-            <strong><%= like.page.title %></strong> <small>by <%= like.page.user.name%></small>
-            <br>
-            <span style="display:block;text-overflow: ellipsis;height: 50px;overflow: hidden;">
-              <%= like.page.content %>
-            </span>
-            <%= button_to "delete", like, :method => :delete %>
-          </p>
-        </div>
-      </div>
-    </article>
-    <%end%>
+    <% end %>
   </div>
