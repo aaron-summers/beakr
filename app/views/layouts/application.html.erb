@@ -1,56 +1,94 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bibliomania</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<head>
+  <title>Bibliomania</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" />
-  </head>
-  <body>
-    <section class="section">
-      <nav class="level">
-        <p class="level-item has-text-centered">
-          <a class="link is-info"><%= link_to 'Post', new_page_path %></a>
-        </p>
-        <p class="level-item has-text-centered">
-          <a class="link is-info"><%= link_to 'Trending', pages_path %></a>
-        </p>
-        <p class="level-item has-text-centered">
-          <a class="link is-info"><%= link_to "My Profile", users_path(@user) %></a>
-        </p>
-        <% if logged_in? %>
-          <p class="level-item has-text-centered">
-            <a class="link is-info"><%= link_to 'Log out', logout_path %></a>
-          </p>
-        <% else %>
-          <p class="level-item has-text-centered">
-            <a class="link is-info"><%= link_to 'Log in', login_path %></a>
-          </p>
-        <% end %>
-      </nav>
-    </section>
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
-    <section>
-      <div class="box">
-        <!-- <section class="section"> -->
-          <div class="wrapper">
-            <% if notice %>
-              <p class="alert alert-success"><%= notice %></p>
-            <% end %>
-            <% if alert %>
-              <p class="alert alert-danger"><%= alert %></p>
-            <% end %>
-            <%= yield %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" />
+  <script src="https://kit.fontawesome.com/35cbe18ce6.js"></script>
+</head>
+<body>
+  <% if logged_in? %>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="https://cdn.pixabay.com/photo/2014/04/03/09/57/lab-309424_960_720.png" width="25" height="150">
+      </a>
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <div class="navbar-item">
+          <%= link_to "", new_page_path, :class=>"navbar-item fas fa-marker" %>
+        </div>
+
+        <div class="navbar-item">
+          <%= link_to "", pages_path, :class=>"navbar-item fas fa-home" %>
+        </div>
+
+        <div class="navbar-item">
+          <%= link_to "", users_path, :class=>"navbar-item fas fa-user-astronaut" %>
+        </div>
+
+
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+          </a>
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              About
+            </a>
+            <a class="navbar-item">
+              Jobs
+            </a>
+            <a class="navbar-item">
+              Contact
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Report an issue
+            </a>
+            <div class="navbar-item button is-light">
+              <a class="link is-info"><%= link_to 'Log out', logout_path %></a>
+            </div>
           </div>
-        </section>
+        </div>
       </div>
+    </div>
+  </nav>
+  <% end %>
+
+
+  <% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
+  <section>
+    <div class="box">
+      <!-- <section class="section"> -->
+      <div class="wrapper">
+        <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+        <%= yield %>
+      </div>
+    </section>
+    <!-- </div> -->
     <!-- </section> -->
   </body>
-</html>
+  </html>

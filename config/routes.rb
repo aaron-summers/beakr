@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get 'sessions/new'
   resources :pages
   resources :tags
-  resources :change_requests
   resources :users
   resources :likes
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
