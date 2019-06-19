@@ -1,21 +1,23 @@
+<div id="login">
+  <div class="login-card">
+    <h3 class="card-title">Sign In</h3>
 
-<h5 class="card-title text-center">Sign In</h5>
-<h1>Please Sign In</h1>
+    <div class="content">
+      <%= form_for(:session, url: login_path, :html => {:class => 'form-signin'}) do |f| %>
+      <div class="form-label-group">
+        <%= f.label :email %>
+        <%= f.text_field :email, id: 'email', class: 'form-control', :required => true, :autofocus => true %>
+      </div>
 
-<div class="content">
-<%= form_for(:session, url: login_path, :html => {:class => 'form-signin'}) do |f| %>
-<div class="form-label-group">
-<%= f.label :email %>
-<%= f.text_field :email, class: 'form-control', placeholder: 'email', input: 'required', input: 'autofocus' %>
-</div>
-
-<div class="form-label-group">
-<%= f.label :password %>
-<%= f.password_field :password, class: 'form-control', placeholder: 'Password', input: 'required' %>
-</div>
+      <div class="form-label-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, id: 'password', class: 'form-control', :required => true %>
+      </div>
 
 
-<%= f.submit "Log in", class: "btn btn-primary", value:'login' %>
-<% end %>
-<br>
-<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+      <%= f.submit "Log In", class: "btn btn-primary" %>
+      <% end %>
+      <br>
+      <p>New user? <%= link_to "Sign up now!", signup_path, :class => "btn-link"%></p>
+    </div>
+  </div>

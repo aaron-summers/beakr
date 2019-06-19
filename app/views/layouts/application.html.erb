@@ -6,16 +6,19 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" /> -->
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" />
   </head>
   <body>
     <section class="section">
       <nav class="level">
         <p class="level-item has-text-centered">
-          <a class="link is-info"><%= link_to 'New Article', new_page_path %></a>
+          <a class="link is-info"><%= link_to 'Post', new_page_path %></a>
         </p>
         <p class="level-item has-text-centered">
-          <a class="link is-info"><%= link_to 'All Articles', pages_path %></a>
+          <a class="link is-info"><%= link_to 'Trending', pages_path %></a>
         </p>
         <p class="level-item has-text-centered">
           <a class="link is-info"><%= link_to "My Profile", users_path(@user) %></a>
@@ -36,7 +39,7 @@
     <% end %>
     <section>
       <div class="box">
-        <section class="section">
+        <!-- <section class="section"> -->
           <div class="wrapper">
             <% if notice %>
               <p class="alert alert-success"><%= notice %></p>
@@ -48,6 +51,6 @@
           </div>
         </section>
       </div>
-    </section>
+    <!-- </section> -->
   </body>
 </html>
