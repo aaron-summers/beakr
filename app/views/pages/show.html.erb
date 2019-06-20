@@ -8,6 +8,7 @@
       <!-- <a class="navbar-link dropdown-right is-arrowless"> -->
       <!--  -->
         <%= link_to "", (edit_page_path), :class=>"navbar-item fas fa-edit " %>
+        <%= link_to "", page_path, method: :delete, :class => "navbar-item fas fa-trash", data: { confirm: "Are you sure?" } %>
       <!-- <p class="hover_description">Edit</p> -->
       <!-- </nav> -->
       <% else %>
