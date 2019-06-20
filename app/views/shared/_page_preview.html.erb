@@ -1,32 +1,40 @@
-  <div class="box">
-    <article class="media">
-      <figure class="media-left">
-        <p class="image is-128x128">
-          <img class="is-rounded" src="<%= page.imgurl%>">
+<div class="box">
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-128x128">
+        <img class="is-rounded" src="<%= page.imgurl%>">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= page.title%></strong>
+          <br>
+          <span style="display:block;text-overflow: ellipsis;height: 75px;overflow: hidden;">
+            <%= page.content %>
+          </span>
+          <%= link_to "... read more", page %>
         </p>
-      </figure>
-
-      <div class="media-content">
-        <div class="content">
-          <p>
-            <strong><%= page.title%></strong>
-            <br>
-            <span style="display:block;text-overflow: ellipsis;height: 75px;overflow: hidden;">
-              <%= page.content %>
-            </span>
-
-            <%= link_to "... read more", page %>
-
-          </p>
-        </div>
       </div>
-
-      <nav class="level is-mobile">
-        <div class="level-left">
-          <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-heart"></i></span>
-          </a>
-        </div>
-      </nav>
-    </article>
-  </div>
+    </div>
+    <% if page.user_id == current_user.id %>
+      <!-- <nav class="navbar-end" role="navigation" aria-label="main navigation"> -->
+      <!-- <div class="navbar-item has-dropdown is-hoverable edit-button"> -->
+      <!-- <a class="navbar-link dropdown-right is-arrowless"> -->
+      <!--  -->
+      <%= link_to "", (edit_page_path(page.id)), :class=>"navbar-item fas fa-edit " %>
+      <!-- <p class="hover_description">Edit</p> -->
+      <!-- </nav> -->
+    <% else %>
+      <%= form_tag likes_path do%>
+        <%= hidden_field_tag(:"like[user_id]", current_user.id) %>
+        <%= hidden_field_tag(:"like[page_id]", page.id) %>
+        <% if !(page.likes.any? { |like| like.user_id == current_user.id }) %>
+          <%= submit_tag("Like") %>
+        <%else%>
+          <p>you liked this!</p>
+        <%end%>
+      <%end%>
+    <%end%>
+  </article>
+</div>
