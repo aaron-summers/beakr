@@ -1,7 +1,5 @@
 <div class="box">
 
-
-
   <div class="container is-fluid">
     <div class="notification">
     <% if @page.user_id == current_user.id %>
@@ -53,7 +51,7 @@
     <%= hidden_field_tag(:"comment[page_id]", @page.id) %>
     <div class="field has-addons">
 
-        <%= text_field_tag :comment, " ", class: "input is-normal is-info"%>
+        <%= text_field_tag :"comment[content]", ' ', class: "input is-normal is-info", placeholder: "Write a comment..."%>
 
       <div class="control">
       <%= submit_tag("Comment", options = {:class => "button is-rounded"})%>
