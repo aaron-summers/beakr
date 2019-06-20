@@ -1,5 +1,5 @@
 <% if comment.content != nil %>
   <div class="box">
-    <p><strong><%=comment.user.name%></strong>: <%=comment.content %></p>
+        <span><p class="title is-6"><%= comment.user.name %> </p><%= simple_format comment.content %></span>
   </div>
 <% end %>

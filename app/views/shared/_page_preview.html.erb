@@ -36,6 +36,11 @@
         <%end%>
       <%end%>
     <%end%>
-    
   </article>
+  <% if page.likes.any?%>
+    <strong><%= page.likes.length%> people like this</strong>
+  <%end%>
+  <% if page.comments.any?%>
+    <strong><%= page.comments.length%> people have commented on this</strong>
+  <%end%>
 </div>
