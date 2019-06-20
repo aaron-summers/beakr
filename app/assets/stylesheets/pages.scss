@@ -6,3 +6,25 @@
   float: right;
   margin-left: auto;
 }
+
+.comment-button {
+  float: right;
+}
+
+.navbar-end.edit-bar {
+  float: right;
+  padding-bottom: 10px;
+}
+
+a.navbar-item.fas.fa-edit {
+  float: right;
+}
+
+// .box {
+//   padding: 1.5rem 1.25rem 1.25rem 1.25rem;
+// }
+.card {
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+}

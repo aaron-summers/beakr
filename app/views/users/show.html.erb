@@ -1,18 +1,20 @@
 <div class="container is-fluid">
+
   <% @user.pages.reverse_each do |post| %>
   <div class="box ">
+    <div class="notification">
     <% if post.user_id == current_user.id %>
-    <nav class="navbar-end" role="navigation" aria-label="main navigation">
-      <div class="navbar-item has-dropdown is-hoverable edit-button">
+    <!-- <nav class="navbar-end edit-bar" role="navigation" aria-label="main navigation"> -->
+      <!-- <div class="navbar-item has-dropdown is-hoverable edit-button"> -->
         <!-- <a class="navbar-link dropdown-right is-arrowless"> -->
         <p class="hover_description">Edit</p>
           <%= link_to "", (edit_page_path), :class=>"navbar-item fas fa-edit " %>
           <!-- <i class="far fa-edit "></i> -->
 
-      </nav>
+      <!-- </nav> -->
       <% end %>
 
-      <strong><%= post.title %></strong>
+      <h1 class="title"><%= post.title %></h1>
       <div class="box">
         <article class="media">
           <div class="media-content">
@@ -24,9 +26,8 @@
         </article>
 
       </div>
-      <div class="media-content">
-        <p><%= post.content %></p><br>
-      </div>
+<!-- Comment div goes here -->
     </div>
     <% end %>
   </div>
+</div>

@@ -33,16 +33,22 @@
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-end">
         <div class="navbar-item">
+          <%= link_to "", pages_path, :class=>"navbar-item fas fa-home" %>
+        </div>
+
+        <div class="navbar-item">
           <%= link_to "", new_page_path, :class=>"navbar-item fas fa-marker" %>
         </div>
 
         <div class="navbar-item">
-          <%= link_to "", pages_path, :class=>"navbar-item fas fa-home" %>
+          <%= link_to "", tags_path, :class=>"navbar-item fas fa-tags" %>
         </div>
 
         <div class="navbar-item">
           <%= link_to "", user_path(current_user), :class=>"navbar-item fas fa-user-astronaut" %>
         </div>
+
+
 
 
 
