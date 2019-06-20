@@ -1,4 +1,4 @@
-<% @pages.each do |page| %>
+<% @pages.reverse_each do |page| %>
 <!-- <span style="display:block;text-overflow: ellipsis;height: 200px;overflow: hidden;"> -->
     <%= render 'shared/page_preview', page: page%>
     <!-- </span> -->
