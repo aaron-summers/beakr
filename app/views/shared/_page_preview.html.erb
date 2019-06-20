@@ -11,7 +11,7 @@
           <strong><%= page.title%></strong>
           <br>
           <span style="display:block;text-overflow: ellipsis;height: 75px;overflow: hidden;">
-            <%= page.content %>
+            <%= simple_format page.content %>
           </span>
           <%= link_to "... read more", page %>
         </p>
@@ -36,5 +36,6 @@
         <%end%>
       <%end%>
     <%end%>
+    
   </article>
 </div>
