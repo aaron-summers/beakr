@@ -1,8 +1,0 @@
-<%= form_for @tag || Tag.new do |f| %>
-  <div class="field">
-    <%= f.label :name, class: "label" %>
-    <div class="control">
-      <%= f.text_field :name, class: "input", placeholder: "Or add a new tag" %>
-    </div>
-  </div>
-<%end%>
