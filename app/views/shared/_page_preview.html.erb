@@ -22,8 +22,8 @@
       <!-- <div class="navbar-item has-dropdown is-hoverable edit-button"> -->
       <!-- <a class="navbar-link dropdown-right is-arrowless"> -->
       <!--  -->
-      <%= link_to "", (edit_page_path(page.id)), :class=>"navbar-item fas fa-edit " %>
-      <!-- <p class="hover_description">Edit</p> -->
+      <p class="hover_description">Edit</p>
+      <%= link_to "", (edit_page_path(page.id)), :class=>"navbar-item fas fa-edit " %>      <!-- <p class="hover_description">Edit</p> -->
       <!-- </nav> -->
     <% else %>
       <%= form_tag likes_path do%>
@@ -32,7 +32,7 @@
         <% if !(page.likes.any? { |like| like.user_id == current_user.id }) %>
           <%= submit_tag("Like") %>
         <%else%>
-          <p>you liked this!</p>
+          <%= button_to "unlike", {:controller => :likes, :action => 'destroy', :id => (page.likes.any? {|like| like.user_id == current_user.id}) }, :method => :delete %>
         <%end%>
       <%end%>
     <%end%>

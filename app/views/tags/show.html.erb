@@ -1,34 +1,8 @@
-
 <div class="container is-fluid">
   <div class="notification">
     <h3 class="title is-3"><%= tag.name %></h3>
     <% @tag.pages.each do |page| %>
-      <article class="media">
-        <figure class="media-left">
-          <p class="image is-64x64">
-            <img src="<%= page.imgurl%>">
-          </p>
-        </figure>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <strong><%= page.title%></strong>
-              <br>
-              <span style="display:block;text-overflow: ellipsis;height: 50px;overflow: hidden;">
-                <%= page.content %>
-              </span>
-              <%= link_to "... read more", page %>
-            </p>
-          </div>
-          <nav class="level is-mobile">
-            <div class="level-left">
-              <a class="level-item">
-                <span class="icon is-small"><i class="fas fa-heart"></i></span>
-              </a>
-            </div>
-          </nav>
-        </div>
-      </article>
+      <%= render 'shared/page_preview', page: page %>
     <% end %>
   </div>
 </div>
