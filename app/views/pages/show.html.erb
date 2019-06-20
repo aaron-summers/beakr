@@ -42,13 +42,27 @@
       </div>
     </div>
   </div>
-  <% if @page.likes.any?%>
-    <strong><%= @page.likes.length%> people like this</strong>
+
+<div class="engagement-wrap">
+    <% if @page.likes.any?%>
+    <span class="likes"><%= page.likes.length%>
+    <i class="fas fa-thumbs-up"></i>
+  </span>
+  <% else %>
+  <span class="likes">
+    <i class="far fa-thumbs-up"></i>
+  </span>
   <%end%>
   <% if @page.comments.any?%>
-    <strong><%= @page.comments.length%> people have commented on this</strong>
+    <span class="comments">
+      <%= @page.comments.length%>
+      <i class="fas fa-comments"></i>
+    </span>
+    <% else %>
+    <span class="comments">
+    <i class="far fa-comments"></i></span>
   <%end%>
-  <br>
+  </div>
 </div>
 
 <!-- Existing Comments -->

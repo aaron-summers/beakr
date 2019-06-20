@@ -1,10 +1,16 @@
 <% @tags.each do |tag| %>
+
   <div class="container is-fluid">
     <div class="notification">
-    <h3 class="title is-3"><%= link_to tag.name, tag %></h3>
+      <% if tag.pages.exists? %>
+    <h3 class="title is-3">#<%= link_to tag.name.capitalize, tag %></h3>
       <% tag.pages.each do |page| %>
-        <%= render 'shared/page_preview', page: page%>
+          <%= render 'shared/page_preview', page: page%>
       <% end %>
+      <% else %>
+        <h3 class="title is-3">#<%= link_to tag.name.capitalize, tag %></h3>
+        <div class="subtitle is-5">No Posts</div>
+    <% end %>
     </div>
   </div><br>
 <% end %>

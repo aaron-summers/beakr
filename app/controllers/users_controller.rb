@@ -8,9 +8,9 @@ class UsersController < ApplicationController
   def create
     @user = User.create user_params
     if @user.valid?
-      redirect_to pages_path
+      redirect_to login_path
     else
-      flash[:errors] = user.errors.full_messages
+      flash[:errors] = @user.errors.full_messages
       redirect_to new_user_path
     end
   end

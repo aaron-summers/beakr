@@ -1,5 +1,7 @@
 <div class="box">
-  <article class="media">
+
+  <div class="box hero is-light widescreen">
+    <article class="media">
     <figure class="media-left">
       <p class="image is-128x128">
         <img class="is-rounded" src="<%= page.imgurl%>">
@@ -7,16 +9,17 @@
     </figure>
     <div class="media-content">
       <div class="content">
-        <p>
+        <!-- <p> -->
           <strong><%= page.title%></strong>
           <br>
-          <span style="display:block;text-overflow: ellipsis;height: 75px;overflow: hidden;">
+          <div style="display:block;text-overflow: ellipsis;height: 50px;overflow: hidden;">
             <%= simple_format page.content %>
-          </span>
+          </div>
           <%= link_to "... read more", page %>
-        </p>
+        <!-- </p> -->
       </div>
     </div>
+
     <% if page.user_id == current_user.id %>
       <!-- <nav class="navbar-end" role="navigation" aria-label="main navigation"> -->
       <!-- <div class="navbar-item has-dropdown is-hoverable edit-button"> -->
@@ -37,10 +40,27 @@
       <%end%>
     <%end%>
   </article>
-  <% if page.likes.any?%>
-    <strong><%= page.likes.length%> people like this</strong>
+
+
+  <div class="engagement-wrap">
+    <% if page.likes.any?%>
+    <span class="likes"><%= page.likes.length%>
+    <i class="fas fa-thumbs-up"></i>
+  </span>
+  <% else %>
+  <span class="likes">
+    <i class="far fa-thumbs-up"></i>
+  </span>
   <%end%>
   <% if page.comments.any?%>
-    <strong><%= page.comments.length%> people have commented on this</strong>
+    <span class="comments">
+      <%= page.comments.length%>
+      <i class="fas fa-comments"></i>
+    </span>
+    <% else %>
+    <span class="comments">
+    <i class="far fa-comments"></i></span>
   <%end%>
+  </div>
+</div>
 </div>
