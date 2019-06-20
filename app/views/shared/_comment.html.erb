@@ -8,9 +8,8 @@
              comment_path(comment),
                          method: :delete,
                          data: { confirm: 'Are you sure?' },
-                         :class=>"navbar-item fas fa-trash" %>
+                         :class=>"navbar-item fas fa-trash" %><%end%>
       </p>
       <%= simple_format comment.content %></span>
-      <%end%>
   </div>
 <% end %>
