@@ -1,21 +1,28 @@
 <%= form_for @page do |f| %>
+  <%= hidden_field_tag(:"page[user_id]", current_user.id) %>
   <div class="field">
     <%= f.label :title, class: "label" %>
     <div class="control">
-      <%= f.text_field :title, class: "input", placeholder: "Article title here..." %>
+      <%= f.text_field :title, class: "input", placeholder: "Title" %>
     </div>
   </div>
   <div class="field">
-    <%= f.label :content, class: "label" %>
+    <%= f.label :content, value: "Post", class: "label" %>
     <div class="control">
-      <%= f.text_area :content, class: "textarea", placeholder: "Article content here...", rows: "20" %>
+      <%= f.text_area :content, class: "textarea", placeholder: "What's on your mind?", rows: "20" %>
     </div>
   </div>
   <div class="field">
-    <%= f.label :imgurl, class: "label" %>
+    <%= f.label :imgurl, value: "Image URL", class: "label" %>
     <div class="control">
-      <%= f.text_field :imgurl, class: "input", placeholder: "Article image link here..."%>
+      <%= f.text_field :imgurl, class: "input", placeholder: "https://www.example.com/webp/gallery/1.jpg"%>
     </div>
   </div>
+  <%= f.text_field :tag_name, list: "tags_autocomplete" %>
+  <datalist id="tags_autocomplete">
+    <% Tag.all.each do |tag| %>
+      <option value="<%= tag.name %>">
+    <% end %>
+  </datalist>
   <%= f.submit%>
 <% end %>

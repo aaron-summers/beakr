@@ -23,6 +23,9 @@ Things you may want to cover:
 
 * ...
 
+<<<<<<< HEAD
+This is a reddit clone now.
+=======
 
 
 instead of change requests
@@ -30,3 +33,4 @@ instead of change requests
 we will now add the ability to comment on a post.
 
 we will also limit the functionality to delete a page to only the creator.
+>>>>>>> 193b72386dfb86d1989340a23331f8c489b0a7a9

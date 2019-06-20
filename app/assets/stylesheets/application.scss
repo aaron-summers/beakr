@@ -13,9 +13,42 @@
  *= require_tree .
  *= require_self
  */
+// $navbar-background-color: hsl(0, 0%, 40%);
+// $navbar-box-shadow-size: 0 10px 0 0;
 
 .wrapper {
-  width: 70%;
+  width: 65%;
   position: relative;
   margin: 0 auto;
+}
+
+.logo-text {
+  font-size: 2rem;
+  padding: 4px;
+}
+
+.navbar-dropdown.dropdown-right {
+  left: calc(-250% + 5px);
+}
+
+a.navbar-item.fas.fa-edit {
+  float: right;
+}
+
+a.navbar-item.fas.fa-trash {
+  float: right;
+}
+
+.hover_description {
+  position: relative;
+  padding: 5px 10px;
+  visibility: hidden;
+  opacity: 1;
+  transition: opacity 1.2s, visibility .2s ease;
+}
+
+.edit-button:hover .hover_description{
+
+  visibility: visible;
+  opacity: 0.5;
 }

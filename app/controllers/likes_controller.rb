@@ -1,22 +1,27 @@
 class LikesController < ApplicationController
+  before_action :find_like, only: [:destroy]
 
   def new
     @like = Like.new(like_params)
   end
 
   def create
-    @like = Like.new(like_params)
-    if @like.save
-      redirect_to user_path(@user)
-    else
-      redirect_to article_path
-    end
+    like = Like.create like_params
+    redirect_to page_path(like.page)
+   end
+
+   def destroy
+    @like.destroy
+    redirect_to user_path(@user)
   end
 
   private
 
-  def like_params
-    params.require(:likes).permit(:user_id, :article_id)
+  def find_like
+    @like = Like.find params[:id]
   end
-  
+
+  def like_params
+    params.require(:like).permit(:user_id, :page_id)
+  end
 end
