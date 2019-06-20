@@ -1,0 +1,9 @@
+<div class="container is-fluid">
+  <div class="notification">
+    <h3 class="title is-3"><%= tag.name %></h3>
+    <% @tag.pages.each do |page| %>
+      <%= render 'shared/page_preview', page: page %>
+    <% end %>
+  </div>
+</div>
+<br>

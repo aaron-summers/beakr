@@ -12,7 +12,7 @@ class LikesController < ApplicationController
 
    def destroy
     @like.destroy
-    redirect_to user_path(@user)
+    redirect_to pages_path
   end
 
   private

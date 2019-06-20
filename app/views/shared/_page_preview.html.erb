@@ -1,0 +1,46 @@
+<div class="box">
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-128x128">
+        <img class="is-rounded" src="<%= page.imgurl%>">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= page.title%></strong>
+          <br>
+          <span style="display:block;text-overflow: ellipsis;height: 75px;overflow: hidden;">
+            <%= simple_format page.content %>
+          </span>
+          <%= link_to "... read more", page %>
+        </p>
+      </div>
+    </div>
+    <% if page.user_id == current_user.id %>
+      <!-- <nav class="navbar-end" role="navigation" aria-label="main navigation"> -->
+      <!-- <div class="navbar-item has-dropdown is-hoverable edit-button"> -->
+      <!-- <a class="navbar-link dropdown-right is-arrowless"> -->
+      <!--  -->
+      <p class="hover_description">Edit</p>
+      <%= link_to "", (edit_page_path(page.id)), :class=>"navbar-item fas fa-edit " %>      <!-- <p class="hover_description">Edit</p> -->
+      <!-- </nav> -->
+    <% else %>
+      <%= form_tag likes_path do%>
+        <%= hidden_field_tag(:"like[user_id]", current_user.id) %>
+        <%= hidden_field_tag(:"like[page_id]", page.id) %>
+        <% if !(page.likes.any? { |like| like.user_id == current_user.id }) %>
+          <%= submit_tag("Like") %>
+        <%else%>
+          <%= button_to "unlike", {:controller => :likes, :action => 'destroy', :id => (page.likes.any? {|like| like.user_id == current_user.id}) }, :method => :delete %>
+        <%end%>
+      <%end%>
+    <%end%>
+  </article>
+  <% if page.likes.any?%>
+    <strong><%= page.likes.length%> people like this</strong>
+  <%end%>
+  <% if page.comments.any?%>
+    <strong><%= page.comments.length%> people have commented on this</strong>
+  <%end%>
+</div>

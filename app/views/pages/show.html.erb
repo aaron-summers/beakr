@@ -42,7 +42,12 @@
       </div>
     </div>
   </div>
-
+  <% if @page.likes.any?%>
+    <strong><%= @page.likes.length%> people like this</strong>
+  <%end%>
+  <% if @page.comments.any?%>
+    <strong><%= @page.comments.length%> people have commented on this</strong>
+  <%end%>
   <br>
 </div>
 
@@ -50,15 +55,7 @@
 <div class="box">
   <!-- <article class="media"> -->
   <% @page.comments.reverse_each do |comment|%>
-    <% if comment.content != nil %>
-    <!-- <div class="media-content"> -->
-      <!-- <div class="content"> -->
-      <div class="box">
-        <span><p class="title is-6"><%= comment.user.name %> </p><%= simple_format comment.content %></span>
-      </div>
-      <!-- </div> -->
-    <!-- </div> -->
-    <% end %>
+    <%= render 'shared/comment', comment: comment %>
   <% end %>
  <!-- </article> -->
 
@@ -74,6 +71,6 @@
         <%= submit_tag("Comment", options = {:class => "button is-rounded"})%>
       </div>
     </div>
-
   <% end %>
+
 </div>

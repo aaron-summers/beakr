@@ -18,7 +18,8 @@
       <%= f.text_field :imgurl, class: "input", placeholder: "https://www.example.com/webp/gallery/1.jpg"%>
     </div>
   </div>
-  <%= f.text_field :tag_name, list: "tags_autocomplete" %>
+  <%= f.label :tag_name, value: "Tag (pick one or add a new one)", class: "label" %>
+  <%= f.text_field :tag_name, list: "tags_autocomplete", class: "input" %>
   <datalist id="tags_autocomplete">
     <% Tag.all.each do |tag| %>
       <option value="<%= tag.name %>">
