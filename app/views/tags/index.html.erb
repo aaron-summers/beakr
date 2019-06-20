@@ -1,16 +1,18 @@
 <% @tags.reverse_each do |tag| %>
-
-  <div class="container is-fluid">
-    <div class="notification">
-      <% if tag.pages.exists? %>
-    <h3 class="title is-3">#<%= link_to tag.name.capitalize, tag %></h3>
-      <% tag.pages.reverse_each do |page| %>
-          <%= render 'shared/page_preview', page: page%>
-      <% end %>
-      <% else %>
-        <h3 class="title is-3">#<%= link_to tag.name.capitalize, tag %></h3>
-        <div class="subtitle is-5">No Posts</div>
-    <% end %>
+  <% if tag.pages.any? %>
+    <div class="container is-fluid">
+      <div class="notification">
+        <% if tag.pages.exists? %>
+          <h3 class="title is-3">#<%= link_to tag.name.capitalize, tag %></h3>
+          <% tag.pages.reverse_each do |page| %>
+            <%= render 'shared/page_preview', page: page%>
+          <% end %>
+        <% else %>
+          <h3 class="title is-3">#<%= link_to tag.name.capitalize, tag %></h3>
+          <div class="subtitle is-5">No Posts</div>
+        <% end %>
+      </div>
     </div>
-  </div><br>
+    <br>
+  <%end%>
 <% end %>

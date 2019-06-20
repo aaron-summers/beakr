@@ -1,33 +1,38 @@
 <div class="container is-fluid">
   <h3 class="title is-3">Your Posts</h3>
-  <% @user.pages.reverse_each do |page| %>
-    <div class="box">
-      <div class="notification">
-
-      <%= render 'shared/page_preview', page: page %>
-      <% page.comments.sort_by{|t| - t.created_at.to_i}.first(3).each do|comment|%>
-        <%= render 'shared/comment', comment: comment %>
-      <%end%>
-      <%= form_tag comments_path do |f| %>
-    <%= hidden_field_tag(:"comment[user_id]", current_user.id) %>
-    <%= hidden_field_tag(:"comment[page_id]", page.id) %>
-    <div class="field has-addons">
-
-      <%= text_field_tag :"comment[content]", ' ', class: "input is-normal is-info", placeholder: "Write a comment..."%>
-
-      <div class="control">
-        <%= submit_tag("Comment", options = {:class => "button is-rounded"})%>
+  <% if @user.pages.length != 0 %>
+    <% @user.pages.reverse_each do |page| %>
+      <div class="box">
+        <div class="notification">
+          <%= render 'shared/page_preview', page: page %>
+          <% page.comments.sort_by{|t| - t.created_at.to_i}.first(3).each do|comment|%>
+            <%= render 'shared/comment', comment: comment %>
+          <%end%>
+          <%= form_tag comments_path do |f| %>
+            <%= hidden_field_tag(:"comment[user_id]", current_user.id) %>
+            <%= hidden_field_tag(:"comment[page_id]", page.id) %>
+            <div class="field has-addons">
+              <%= text_field_tag :"comment[content]", ' ', class: "input is-normal is-info", placeholder: "Write a comment..."%>
+              <div class="control">
+                <%= submit_tag("Comment", options = {:class => "button is-rounded"})%>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
-    </div>
-  <% end %>
-      </div>
+    <% end %>
+  <%else%>
+    <p>You haven't made any yet! why not <%= link_to "make a new one?", new_page_path %></p>
+  <%end%>
 </div>
 <br>
-<h3 class="title is-3">Posts you've liked</h3>
 <div class="container is-fluid">
-  <% @user.likes.reverse_each do |like| %>
-    <%= render 'shared/page_preview', page: like.page %>
+  <h3 class="title is-3">Posts you've liked</h3>
+  <% if @user.pages.length != 0 %>
+    <% @user.likes.reverse_each do |like| %>
+      <%= render 'shared/page_preview', page: like.page %>
+    <%end%>
+  <%else%>
+    <p>You haven't liked any yet! why not <%= link_to "find one you enjoy?", pages_path %></p>
   <%end%>
 </div>

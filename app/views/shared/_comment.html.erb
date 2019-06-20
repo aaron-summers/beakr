@@ -1,5 +1,16 @@
 <% if comment.content != nil %>
   <div class="box">
-      <span><p class="title is-6"><%= comment.user.name %> </p><%= simple_format comment.content %></span>
+    <span>
+      <p class="title is-6"><%= comment.user.name %>
+        <% if comment.user_id == current_user.id %>
+          <p class="hover_description">Delete</p>
+          <%= link_to '',
+             comment_path(comment),
+                         method: :delete,
+                         data: { confirm: 'Are you sure?' },
+                         :class=>"navbar-item fas fa-trash" %>
+      </p>
+      <%= simple_format comment.content %></span>
+      <%end%>
   </div>
 <% end %>

@@ -26,6 +26,7 @@ class TagsController < ApplicationController
   end
 
   def destroy
+    redirect_to tags_path
   end
 
   private

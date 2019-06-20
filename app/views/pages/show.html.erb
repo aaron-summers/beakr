@@ -2,89 +2,52 @@
 <div class="box">
   <div class="container is-fluid">
     <div class="notification">
-      <% if @page.user_id == current_user.id %>
-      <!-- <nav class="navbar-end" role="navigation" aria-label="main navigation"> -->
-      <!-- <div class="navbar-item has-dropdown is-hoverable edit-button"> -->
-      <!-- <a class="navbar-link dropdown-right is-arrowless"> -->
-      <!--  -->
-        <%= link_to "", (edit_page_path), :class=>"navbar-item fas fa-edit " %>
-        <%= link_to "", page_path, method: :delete, :class => "navbar-item fas fa-trash", data: { confirm: "Are you sure?" } %>
-      <!-- <p class="hover_description">Edit</p> -->
-      <!-- </nav> -->
-      <% else %>
-        <%= form_tag likes_path do%>
-          <%= hidden_field_tag(:"like[user_id]", current_user.id) %>
-          <%= hidden_field_tag(:"like[page_id]", @page.id) %>
-            <% if !(@page.likes.any? { |like| like.user_id == current_user.id }) %>
-              <%= submit_tag("Like") %>
-            <%end%>
-          <%end%>
-      <%end%>
-
-
+      <%= render 'shared/like_button', page: @page%>
       <h1 class="title"><%= @page.title %></h1>
       <small class="media-right">by <%= link_to @page.user.name, users_path(@page.user) %></small>
       <span class="tag is-dark">#<%= @page.tag.name %></span>
       <br>
       <br>
-      <div class="box show-image">
+      <div class="box">
         <div class="media-content">
-          <figure class="media-left">
-            <p class="image">
-              <img src="<%= @page.imgurl%>">
-            </p>
-          </figure>
+          <p class="image">
+            <img style="max-height:200px;width:auto;" src="<%= @page.imgurl%>">
+          </p>
         </div>
       </div>
-
       <div class="container is-fluid">
         <p><%= simple_format @page.content %></p>
       </div>
     </div>
   </div>
-
-<div class="engagement-wrap">
+  <div class="engagement-wrap">
     <% if @page.likes.any?%>
-    <span class="likes"><%= @page.likes.length%>
-    <i class="fas fa-thumbs-up"></i>
-  </span>
-  <% else %>
-  <span class="likes">
-    <i class="far fa-thumbs-up"></i>
-  </span>
-  <%end%>
-  <% if @page.comments.any?%>
-    <span class="comments">
-      <%= @page.comments.length%>
-      <i class="fas fa-comments"></i>
-    </span>
+      <span class="likes"><%= @page.likes.length%>
+        <i class="fas fa-thumbs-up"></i>
+      </span>
     <% else %>
-    <span class="comments">
-    <i class="far fa-comments"></i></span>
-  <%end%>
+      <span class="likes">
+        <i class="far fa-thumbs-up"></i>
+      </span>
+    <%end%>
+    <% if @page.comments.any?%>
+      <span class="comments">
+        <%= @page.comments.length%>
+        <i class="fas fa-comments"></i>
+      </span>
+    <% else %>
+      <span class="comments">
+        <i class="far fa-comments"></i></span>
+    <%end%>
   </div>
 </div>
-
 <!-- Existing Comments -->
 <div class="box">
   <!-- <article class="media"> -->
   <% @page.comments.reverse_each do |comment|%>
     <%= render 'shared/comment', comment: comment %>
   <% end %>
- <!-- </article> -->
-
-<!-- Create Comment -->
-  <%= form_tag comments_path do |f| %>
-    <%= hidden_field_tag(:"comment[user_id]", current_user.id) %>
-    <%= hidden_field_tag(:"comment[page_id]", @page.id) %>
-    <div class="field has-addons">
-
-      <%= text_field_tag :"comment[content]", ' ', class: "input is-normal is-info", placeholder: "Write a comment..."%>
-
-      <div class="control">
-        <%= submit_tag("Comment", options = {:class => "button is-rounded"})%>
-      </div>
-    </div>
-  <% end %>
-
+  <!-- </article> -->
+  <!-- Create Comment -->
+<%= render 'shared/new_comment', page: @page %>
 </div>

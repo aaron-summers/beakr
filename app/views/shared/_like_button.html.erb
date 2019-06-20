@@ -1,0 +1,16 @@
+<% if page.user_id == current_user.id %>
+      <p class="hover_description">Edit</p>
+      <%= link_to "", (edit_page_path(page.id)), :class=>"navbar-item fas fa-edit " %>
+    <% else %>
+      <%= form_tag likes_path do%>
+        <%= hidden_field_tag(:"like[user_id]", current_user.id) %>
+        <%= hidden_field_tag(:"like[page_id]", page.id) %>
+        <% if !(page.likes.any? { |like| like.user_id == current_user.id }) %>
+          <%= button_tag( :class => "button_green") do %>
+            Submit for Approval <i class="icon-share-alt icon-white"></i>
+          <% end %>
+        <%else%>
+          <%= button_to "unlike", {:controller => :likes, :action => 'destroy', :id => (page.likes.any? {|like| like.user_id == current_user.id}) }, :method => :delete %>
+        <%end%>
+      <%end%>
+    <%end%>

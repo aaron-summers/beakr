@@ -1,0 +1,10 @@
+  <%= form_tag comments_path do |f| %>
+    <%= hidden_field_tag(:"comment[user_id]", current_user.id) %>
+    <%= hidden_field_tag(:"comment[page_id]", page.id) %>
+    <div class="field has-addons">
+      <%= text_field_tag :"comment[content]", ' ', class: "input is-normal is-info", placeholder: "Write a comment..."%>
+      <div class="control">
+        <%= submit_tag("Comment", options = {:class => "button is-rounded"})%>
+      </div>
+    </div>
+  <% end %>
