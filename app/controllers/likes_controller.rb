@@ -7,7 +7,8 @@ class LikesController < ApplicationController
 
   def create
     like = Like.create like_params
-    redirect_to page_path(like.page)
+    puts "TEST TEST TEST TEST #{params}"
+    redirect_to pages_path
    end
 
    def destroy
@@ -26,7 +27,7 @@ class LikesController < ApplicationController
     params.require(:like).permit(:user_id, :page_id)
   end
 
-  def page
-    @page ||= Page.find(params[:id])
-  end
+  # def page
+  #   @page ||= Page.find(params[:id])
+  # end
 end

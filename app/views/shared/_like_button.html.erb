@@ -7,8 +7,9 @@
     <%= hidden_field_tag(:"like[page_id]", page.id) %>
     <% if !(page.likes.any? { |like| like.user_id == current_user.id }) %>
       <%= submit_tag("Like") %>
-    <%else%>
-      <%= button_to "Unlike", { :controller => "likes", :action => 'destroy', :id => (page.likes.each {|like| like.user_id == current_user}) }, :method => :delete %>
     <%end%>
   <%end%>
+  <% if (page.likes.any? { |like| like.user_id == current_user.id }) %>
+    <%= button_to "Unlike", { :controller => :likes, :action => 'destroy', :id => (page.likes.find {|like| like.user_id == current_user.id}) }, :method => :delete %>
+  <% end %>
 <%end%>
