@@ -11,6 +11,7 @@ class LikesController < ApplicationController
    end
 
    def destroy
+    #page.likes.where(user_id: current_user).destroy_all
     @like.destroy
     redirect_to pages_path
   end
@@ -23,5 +24,9 @@ class LikesController < ApplicationController
 
   def like_params
     params.require(:like).permit(:user_id, :page_id)
+  end
+
+  def page
+    @page ||= Page.find(params[:id])
   end
 end

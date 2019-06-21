@@ -1,6 +1,6 @@
 <!-- Render a post within a box -->
-<div class="box">
-  <div class="container is-fluid">
+<div class="box container-wrap">
+  <div class="container is-center">
     <div class="notification">
       <%= render 'shared/like_button', page: @page%>
       <h1 class="title"><%= @page.title %></h1>
@@ -8,10 +8,10 @@
       <span class="tag is-dark">#<%= @page.tag.name %></span>
       <br>
       <br>
-      <div class="box">
+      <div class="box page-box">
         <div class="media-content">
           <p class="image">
-            <img style="max-height:200px;width:auto;" src="<%= @page.imgurl%>">
+            <img src="<%= @page.imgurl%>">
           </p>
         </div>
       </div>
