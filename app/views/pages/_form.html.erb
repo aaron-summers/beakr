@@ -8,7 +8,7 @@
   </div>
   <div class="field">
     <%= f.label :content, value: "Post", class: "label" %>
-    <div class="control"> 
+    <div class="control">
       <%= f.text_area :content, class: "textarea", placeholder: "What's on your mind?", rows: "20" %>
     </div>
   </div>
@@ -20,13 +20,17 @@
   </div>
   <%= f.label :tag_name, value: "Tag (pick one or add a new one)", class: "label" %>
   <%= f.text_field :tag_name, list: "tags_autocomplete", class: "input" %>
+
   <datalist id="tags_autocomplete">
     <% Tag.all.each do |tag| %>
       <option value="<%= tag.name %>">
     <% end %>
   </datalist>
+  <div class="navbar-end">
   <div>
-  <br>
-  <%= f.submit "Create Page", class: "button is-large is-rounded", type: "submit"%>
+    <br>
+  <%= f.submit "Post", class: "button is-medium is-rounded is-primary", type: "submit"%>
+    </div>
   </div>
+
 <% end %>

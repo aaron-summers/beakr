@@ -1,3 +1,4 @@
+<div class="container-user">
 <div class="container is-fluid">
   <h3 class="title is-3">Your Posts</h3>
   <% if @user.pages.length != 0 %>
@@ -35,4 +36,5 @@
   <%else%>
     <p>You haven't liked any yet! why not <%= link_to "find one you enjoy?", pages_path %></p>
   <%end%>
+</div>
 </div>

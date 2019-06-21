@@ -3,8 +3,8 @@
   <div class="container is-center">
     <div class="notification">
       <%= render 'shared/like_button', page: @page%>
-      <h1 class="title"><%= @page.title %></h1>
-      <small class="media-right">by <%= link_to @page.user.name, users_path(@page.user) %></small>
+      <h1 class="title is-2" id="page-title"><%= @page.title %></h1>
+      <small class="subtitle is-7 media-right">by <%= @page.user.name %></small>
       <span class="tag is-dark">#<%= @page.tag.name %></span>
       <br>
       <br>
