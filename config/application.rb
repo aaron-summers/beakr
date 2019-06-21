@@ -63,15 +63,15 @@ module Bibliomania
         # This is the old structure
         # Still works but will be deprecated in future versions
 
-        501 => "exception",
-        502 => "exception",
-        503 => "exception",
-        504 => "exception",
-        505 => "exception",
-        507 => "exception",
-        510 => "exception"
+        501 => {"exception"},
+        502 => {"exception"},
+        503 => {"exception"},
+        504 => {"exception"},
+        505 => {"exception"},
+        507 => {"exception"},
+        510 => {"exception"}
 
-      }
+      } 
     }
   end
 end
