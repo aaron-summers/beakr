@@ -1,3 +1,4 @@
+<div class="container-pages">
 <% if @pages.length != 0 %>
   <% @pages.reverse_each do |page| %>
     <%= render 'shared/page_preview', page: page%>
@@ -5,3 +6,4 @@
 <%else%>
   <p>There doesn't appear to be anything here! why not <%= link_to "make a new post?", new_page_path %></p>
 <%end%>
+</div>
